@@ -1,0 +1,5 @@
+{
+    "page-not-found": "Página no encontrada",
+    "home-page-loaded": "Página de inicio ha sido recuperado",
+    "login-success": "<%= greeting_es %> <%= name %>, has iniciado sesión correctamente"    
+}

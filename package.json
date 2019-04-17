@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-api",
+  "version": "1.0.0",
+  "description": "NodeJS Application Server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sachin",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "express-winston": "^3.1.0",
+    "helmet": "^3.16.0",
+    "moment": "^2.24.0",
+    "nocache": "^2.0.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "nodemon": "^1.18.11"
+  }
+}
