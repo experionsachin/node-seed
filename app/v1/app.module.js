@@ -4,4 +4,4 @@ const modules = {
     ]
 };
 
-module.exports.appModules = modules;
+module.exports = modules;

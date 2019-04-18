@@ -10,9 +10,6 @@ const cors = require('cors');
 const GLOBAL = require('./helpers/global.helper');
 const response = require('./core/response');
 const logger = require('./core/logs');
-const {
-	appModules
-} = require('./app.module');
 
 // Load environment variables
 const config = dotenv.config();
@@ -34,14 +31,15 @@ app.use(nocache());
 const PORT = process.env.PORT || 3001;
 
 // Dynamic route loading
-if (appModules) {
-	const apiVersions = GLOBAL.API_VERSIONS;
-	const masterModules = Object.keys(appModules);
-	masterModules.forEach(masterModule => {
-		for (let apiVersion of apiVersions) {
+const apiVersions = GLOBAL.API_VERSIONS;
+apiVersions.forEach((apiVersion) => {
+	let appModules = require(`${__dirname}/app/${apiVersion}/app.module.js`);
+	if (appModules) {
+		const masterModules = Object.keys(appModules);
+		masterModules.forEach(masterModule => {
 			for (let subModule of appModules[masterModule]) {
 				if (subModule) {
-					let routerPath = `./app/${masterModule}`;
+					let routerPath = `./app/${apiVersion}/${masterModule}`;
 					let moduleNames = subModule.split('/').filter((item) => {
 						return item;
 					});
@@ -59,9 +57,9 @@ if (appModules) {
 					app.use(basepath, routerFile.routes());
 				}
 			}
-		}
-	});
-}
+		});
+	}
+});
 
 app.get('*', (req, res) => res.status(404).message('page-not-found').return());
 

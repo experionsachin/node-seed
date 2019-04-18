@@ -1,6 +1,6 @@
 const GLOBAL = {
 
-    API_VERSIONS: ['v1'],
+    API_VERSIONS: ['v1', 'v2'],
 
     /* Supported languages */
     LANGUAGES: ['en', 'es'],
