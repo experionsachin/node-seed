@@ -1,5 +1,5 @@
 # node-seed
-Node Application Seed File
+A basic NodeJS application framework
 
 1) Clone this repo
 2) Run the command npm install
